@@ -1,0 +1,33 @@
+
+<div class="card" style="width: 450px; margin: auto; margin-top: 30px">
+
+  <div class="card-header" >
+    <button [ngClass]="name === 'loan' ? 'btn-primary' : 'btn-secondary'" [routerLink]="['/navigator', {tab: 'loan'}]" style="display: inline-block; width: 100px">loan</button>
+    <button [ngClass]="name === 'income' ? 'btn-primary' : 'btn-secondary'" [routerLink]="['/navigator', {tab: 'income'}]" style="display: inline-block; width: 100px">income</button>
+    <button [ngClass]="name === 'outcome' ? 'btn-primary' : 'btn-secondary'" [routerLink]="['/navigator', {tab: 'outcome'}]" style="display: inline-block; width: 100px">outcome</button>
+    <button [ngClass]="name === 'investment' ? 'btn-primary' : 'btn-secondary'" [routerLink]="['/navigator', {tab: 'investment'}]" style="display: inline-block; width: 100px">investment</button>
+  </div>
+
+  <div class="card-body">
+    <div style="position: relative">
+      <div style="position: absolute; display: inline-block; left: 30px">
+        Name
+      </div>
+      <div style="position: absolute; display: inline-block; right: 50px">
+        Account
+      </div>
+    </div>
+    <br/>
+
+    <div style="position: relative; height: 400px; overflow: auto">
+      <div *ngFor="let person of allData[name]" style="border-bottom: 1px #bbbbbb solid">
+        <div style=" margin-left: 30px; display: inline-block;">
+          {{person.name.first + " " + person.name.last}}
+        </div>
+        <div style="position: absolute; display: inline-block; right: 50px">
+          {{isNum(person.amount) ? person.amount : person.amount.replace("floating(1,", "").replace(", 2)", "")}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+
+<div class="card" style="width: 600px; margin: auto; margin-top: 20px">
+  <div class="card-header"></div>
+  <div class="card-body">
+    <h1 class="card-title">Welcome</h1>
+    <p class="card-text">
+      With supporting text below as a natural lead-in to additional content
+    </p>
+    <button class="btn-primary">See transactions</button>
+  </div>
+  <div class="card-footer">
+    <p class="card-text">You have {{transactionCount}} transactions</p>
+  </div>
+</div>
+
+<div style="width: 600px; margin: auto">
+  <div *ngFor="let data of keysAllData" style="width: 300px; display: inline-block; margin-top: 10px">
+    <div class="card" style="width: 290px; margin: 5px">
+      <div class="card-body">
+        <h1 class="card-title">{{allData[data].length}}</h1>
+        <p class="card-text">{{data}}</p>
+        <button [routerLink]="['/navigator', {tab: data}]" class="btn-primary">See All</button>
+      </div>
+    </div>
+  </div>
+</div>
